@@ -565,7 +565,7 @@ static void draw_ball(uint8_t *screen, unsigned int bx, unsigned int by)
     }
 }
 
-/* The moiré effect */
+/* The moire effect */
 #define DISCSIZ (XSIZ*2)
 #define DISCTHICKNESS (XSIZ*15/40)
 static uint8_t disc[DISCSIZ * DISCSIZ];

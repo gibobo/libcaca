@@ -103,3 +103,7 @@ tools/optipal
 tools/makefont
 tools/sortchars
 
+.vs/
+build/win32/Debug/
+build/win32/Release/
+build/x64/
