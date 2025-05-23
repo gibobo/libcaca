@@ -1,4 +1,4 @@
-/*
+﻿/*
  *  input         libcaca text input test program
  *  Copyright (c) 2006-2012 Sam Hocevar <sam@hocevar.net>
  *                All Rights Reserved

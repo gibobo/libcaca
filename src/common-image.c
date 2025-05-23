@@ -31,6 +31,11 @@ static unsigned int u16fread(caca_file_t *);
 static unsigned int u8fread(caca_file_t *);
 #endif
 
+void *_caca_alloc2d(unsigned int w, unsigned h, unsigned int depth)
+{
+    return calloc(w * h, depth);
+}
+
 struct image * load_image(char const * name)
 {
     struct image * im = malloc(sizeof(struct image));

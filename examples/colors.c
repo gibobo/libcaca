@@ -1,4 +1,4 @@
-/*
+﻿/*
  *  colors        display all possible libcaca colour pairs
  *  Copyright (c) 2003-2012 Sam Hocevar <sam@hocevar.net>
  *                All Rights Reserved

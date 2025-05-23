@@ -18,6 +18,10 @@ Building libcaca
      --disable-imlib2: remove Imlib2 support in cacaview
 
      --disable-doc: do not build documentation
+   
+   EX:
+   > autoconf
+   > ./configure --disable-imlib2 --disable-doc --disable-x11 --disable-gl
 
    o  Cross-compilation examples:
 
@@ -35,3 +39,6 @@ Using libcaca
       gcc -c foobar.c -o foobar.o `pkg-config --cflags caca`
       gcc foobar.o -o foobar `pkg-config --libs caca`
 
+Using cacaserver
+
+   o  CACA_DRIVER=raw ./cacademo | ./cacaserver 

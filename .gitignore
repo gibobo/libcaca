@@ -107,3 +107,5 @@ tools/sortchars
 build/win32/Debug/
 build/win32/Release/
 build/x64/
+.build/
+configure~

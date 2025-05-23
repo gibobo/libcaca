@@ -28,16 +28,7 @@
 #endif
 
 #undef __extern
-#if defined _DOXYGEN_SKIP_ME
-#elif defined _WIN32 && defined __LIBCACA__ && defined DLL_EXPORT
-#   define __extern extern __declspec(dllexport)
-#elif defined _WIN32 && !defined __LIBCACA__ && !defined CACA_STATIC
-#   define __extern extern __declspec(dllimport)
-#elif defined CACA_ENABLE_VISIBILITY
-#   define __extern extern __attribute__((visibility("default")))
-#else
-#   define __extern extern
-#endif
+#define __extern extern
 
 /** libcaca API version */
 #define CACA_API_VERSION_1
