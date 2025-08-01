@@ -35,12 +35,14 @@
 
 void _caca_sleep(int usec)
 {
-#if defined(HAVE_SLEEP)
+#if defined(USE_WIN32) && defined(HAVE_SLEEP)
     Sleep((usec + 500) / 1000);
 #elif defined(HAVE_USLEEP)
     usleep(usec);
+#elif defined(HAVE_SLEEP)
+    sleep((usec + 500000) / 1000000);
 #else
-    /* SLEEP */
+    /* No sleep function available */
 #endif
 }
 

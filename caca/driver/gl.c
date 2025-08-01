@@ -22,11 +22,82 @@
 
 #ifdef HAVE_OPENGL_GL_H
 #   include <OpenGL/gl.h>
-#   include <GLUT/glut.h>
+#   ifdef HAVE_GL_GLUT_H
+#       include <GLUT/glut.h>
+#   endif
 #else
 #   include <GL/gl.h>
-#   include <GL/glut.h>
-#   include <GL/freeglut_ext.h>
+#   ifdef HAVE_GL_GLUT_H
+#       include <GL/glut.h>
+#       include <GL/freeglut_ext.h>
+#   endif
+#endif
+
+#ifndef HAVE_GL_GLUT_H
+/* Stub definitions for missing GLUT functions */
+#define GLUT_DOUBLE 0
+#define GLUT_RGBA 0
+#define GLUT_DEPTH 0
+#define GLUT_LEFT_BUTTON 0
+#define GLUT_MIDDLE_BUTTON 1
+#define GLUT_RIGHT_BUTTON 2
+#define GLUT_DOWN 0
+#define GLUT_UP 1
+
+/* GLUT Key Constants */
+#define GLUT_KEY_F1 1
+#define GLUT_KEY_F2 2
+#define GLUT_KEY_F3 3
+#define GLUT_KEY_F4 4
+#define GLUT_KEY_F5 5
+#define GLUT_KEY_F6 6
+#define GLUT_KEY_F7 7
+#define GLUT_KEY_F8 8
+#define GLUT_KEY_F9 9
+#define GLUT_KEY_F10 10
+#define GLUT_KEY_F11 11
+#define GLUT_KEY_F12 12
+#define GLUT_KEY_LEFT 100
+#define GLUT_KEY_RIGHT 101
+#define GLUT_KEY_UP 102
+#define GLUT_KEY_DOWN 103
+#define GLUT_KEY_PAGE_UP 104
+#define GLUT_KEY_PAGE_DOWN 105
+#define GLUT_KEY_HOME 106
+#define GLUT_KEY_END 107
+#define GLUT_KEY_INSERT 108
+
+/* GLUT Cursor Constants */
+#define GLUT_CURSOR_RIGHT_ARROW 0
+#define GLUT_CURSOR_NONE 1
+
+static inline void glutInit(int *argc, char **argv) { (void)argc; (void)argv; }
+static inline void glutInitDisplayMode(unsigned int mode) { (void)mode; }
+static inline void glutInitWindowSize(int width, int height) { (void)width; (void)height; }
+static inline int glutCreateWindow(const char *title) { (void)title; return 0; }
+static inline void glutDisplayFunc(void (*func)(void)) { (void)func; }
+static inline void glutReshapeFunc(void (*func)(int, int)) { (void)func; }
+static inline void glutKeyboardFunc(void (*func)(unsigned char, int, int)) { (void)func; }
+static inline void glutSpecialFunc(void (*func)(int, int, int)) { (void)func; }
+static inline void glutMainLoop(void) { }
+static inline void glutSwapBuffers(void) { }
+static inline void glutPostRedisplay(void) { }
+static inline void glutLeaveMainLoop(void) { }
+static inline void glutMouseFunc(void (*func)(int, int, int, int)) { (void)func; }
+static inline void glutMotionFunc(void (*func)(int, int)) { (void)func; }
+static inline void glutPassiveMotionFunc(void (*func)(int, int)) { (void)func; }
+static inline void glutMainLoopEvent(void) { }
+static inline void glutHideWindow(void) { }
+static inline void glutDestroyWindow(int window) { (void)window; }
+static inline void glutSetWindowTitle(const char *title) { (void)title; }
+static inline void glutSetCursor(int cursor) { (void)cursor; }
+#ifdef HAVE_GLUTCLOSEFUNC
+static inline void glutCloseFunc(void (*func)(void)) { (void)func; }
+#endif
+/* GLU functions */
+static inline void gluOrtho2D(double left, double right, double bottom, double top) { 
+    (void)left; (void)right; (void)bottom; (void)top; 
+}
 #endif
 
 #include <string.h>

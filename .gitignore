@@ -15,7 +15,7 @@ Makefile
 Makefile.in
 aclocal.m4
 autom4te.cache
-config.h.in
+# config.h.in - commented out to allow CMake template
 config.h
 config.log
 config.status
