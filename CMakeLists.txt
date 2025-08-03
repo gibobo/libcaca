@@ -130,10 +130,10 @@ if(WIN32)
     endif()
     check_symbol_exists(ScreenUpdate "pc.h" SCREENUPDATE_IN_PC_H)
     
-    # Check for CONIO support on Windows
-    if(HAVE_CONIO_H)
-        set(USE_CONIO 1)
-    endif()
+    # Don't automatically enable CONIO on Windows - it's not compatible with modern compilers
+    # if(HAVE_CONIO_H)
+    #     set(USE_CONIO 1)
+    # endif()
 elseif(APPLE)
     # macOS/iOS specific settings
     set(USE_COCOA 1)
@@ -217,6 +217,8 @@ set(LIBRARY)  # Start with empty list, will be populated by platform checks
 if(WIN32)
     # Windows specific libraries
     set(USE_WIN32 1)
+    # Don't use CONIO on modern Windows - it's for DOS only
+    unset(USE_CONIO)
     # Windows doesn't need many external libraries
     set(LIBRARY user32 gdi32)
     
